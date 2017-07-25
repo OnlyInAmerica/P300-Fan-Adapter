@@ -16,7 +16,7 @@ screwHoleDiameter=4.5;
 // Adapter
 extrusionHeight = 20;
 rearFanDistanceAboveRectTop = 6.35;
-flangeHeight = 5;
+flangeHeight = 2;
 hullThickness = 3.175;
 
 // Derived measurements
