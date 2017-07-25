@@ -47,7 +47,7 @@ halfRectHeight = rectHeight / 2;
  
  // Circular-side flange
  circularSideFlangeDimen = circleRadius * 2;
- translate([0, circleRadius - rectHeight/2 -rearFanDistanceAboveRectTop, -flangeHeight * 3 - extrusionHeight]) difference() {
+ translate([0, circleRadius - rectHeight/2 -rearFanDistanceAboveRectTop, -flangeHeight * 2 - extrusionHeight]) difference() {
     rectangularbase(circularSideFlangeDimen, circularSideFlangeDimen, flangeHeight);
     cylinder(r=circleRadius - hullThickness,h=flangeHeight);
     //rectangularbase(circularSideFlangeDimen - (hullThickness * 2), circularSideFlangeDimen - (hullThickness * 2), flangeHeight);
