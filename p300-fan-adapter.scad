@@ -6,7 +6,7 @@ rectHeight = 30.16;
 
 // Projector air grille pegs
 pegHeight = 4;
-pegDiameter = 3.175;
+pegDiameter = 2.175;
 
 // External fan
 circleRadius = (92 / 2);
