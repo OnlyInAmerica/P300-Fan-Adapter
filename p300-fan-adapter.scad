@@ -6,7 +6,8 @@ rectHeight = 30.16;
 
 // Projector air grille pegs
 pegHeight = 4;
-pegDiameter = 2.175;
+pegDiameter = 2;
+pegHoleDiameter = 2.6; // Used to ensure peg placement remains constant as pegDiameter changes
 numPegsHorizontal = 14;
 numPegsVertical = 5;
 // Which pegs to include:
@@ -26,35 +27,35 @@ hullThickness = 3.175;
 
 // Derived measurements
 pegRadius = pegDiameter / 2;
+pegHoleRadius = pegHoleDiameter / 2;
 halfRectWidth = rectWidth / 2;
 halfRectHeight = rectHeight / 2;
  
  // Hexapegs
  
- // TODO: Add a little allowance?
-pegStartX = halfRectWidth - pegRadius;
-pegStopX = -halfRectWidth + pegRadius;
+pegStartX = halfRectWidth - pegHoleRadius;
+pegStopX = -halfRectWidth + pegHoleRadius;
  
-pegPaddingHorizontal = ((pegStartX - pegStopX) / (numPegsHorizontal - 1)) - pegDiameter;
-pegIntervalX = pegDiameter + pegPaddingHorizontal;
+pegPaddingHorizontal = ((pegStartX - pegStopX) / (numPegsHorizontal - 1)) - pegHoleDiameter;
+pegIntervalX = pegHoleDiameter + pegPaddingHorizontal;
 
 // Pegs along "horizontal" larger rectangular edge (X-axis)
 for (peg = [0:1:numPegsHorizontal-1]) {
     pegX = pegStartX - (peg * pegIntervalX);
     if (horizontalPegs[peg] != 0) {
         // Top
-        translate([pegX, (-halfRectHeight) + pegRadius, 0 ]) taperedHexapeg(pegHeight, pegRadius);
+        translate([pegX, (-halfRectHeight) + pegHoleRadius, 0 ]) taperedHexapeg(pegHeight, pegRadius);
         // Bottom
-        translate([pegX, halfRectHeight - pegRadius, 0 ]) taperedHexapeg(pegHeight, pegRadius);
+        translate([pegX, halfRectHeight - pegHoleRadius, 0 ]) taperedHexapeg(pegHeight, pegRadius);
     }
 }
     
 // Pegs along "vertical" smaller rectangular edge (Y-axis)
-pegStartY = halfRectHeight - pegRadius;
-pegStopY = (-halfRectHeight) + pegRadius;
+pegStartY = halfRectHeight - pegHoleRadius;
+pegStopY = (-halfRectHeight) + pegHoleRadius;
 
-pegPaddingVertical = ((pegStartY - pegStopY) / (numPegsVertical - 1)) - pegDiameter;
-pegIntervalY = pegDiameter + pegPaddingVertical;
+pegPaddingVertical = ((pegStartY - pegStopY) / (numPegsVertical - 1)) - pegHoleDiameter;
+pegIntervalY = pegHoleDiameter + pegPaddingVertical;
 
 // Vertical pegs
 for (peg = [0:1:numPegsVertical-1]) {
@@ -68,7 +69,7 @@ for (peg = [0:1:numPegsVertical-1]) {
 }
 
  // Rectangular-side flange
-pegAllowance = pegDiameter + .2;  // Radius / Diameter are measured flat edge to edge. Corner-corner distance is slightly greater. TODO: Do the trigonometry
+pegAllowance = pegHoleDiameter;  // Radius / Diameter are measured flat edge to edge. Corner-corner distance is slightly greater. TODO: Do the trigonometry
 innerWidth = rectWidth - (2 * pegAllowance);
 innerHeight = rectHeight - (2 * pegAllowance);
 outerWidth = innerWidth + (hullThickness * 2);
