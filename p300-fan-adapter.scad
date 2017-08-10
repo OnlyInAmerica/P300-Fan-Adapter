@@ -1,10 +1,10 @@
 // Base measurements
 
-// Projector air grille. Measured from outer edge of outer hexagon air holes
+// Projector-side intake grille. Measured from outer edge of outer hexagon air holes
 rectWidth = 52.38;
 rectHeight = 30.16;
 
-// Projector air grille pegs
+// Pegs inserting into projector air grille
 pegHeight = 4;
 pegDiameter = 2;
 pegHoleDiameter = 2.6; // Used to ensure peg placement remains constant as pegDiameter changes
@@ -20,7 +20,9 @@ circularFlangeScrewHoleDistance = 82.5;
 screwHoleDiameter=4.5;
 
 // Adapter
+// Depth of extruded hull
 extrusionHeight = 20;
+// Amount of headspace available above projector intake vent (Important to avoid intersecting mounting hardware)
 rearFanDistanceAboveRectTop = 11.7;
 flangeHeight = 2;
 hullThickness = 3.175;
